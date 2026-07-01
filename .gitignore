@@ -1,0 +1,8 @@
+node_modules/
+dist/
+shots/
+*.log
+
+# dead legacy — 71.7MB, zero HTML references (see DEPLOY_PLAN.md)
+assets/img/
+assets/css/gregory-brand.css
