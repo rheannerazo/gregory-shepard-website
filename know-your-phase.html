@@ -148,13 +148,7 @@ section.block{padding:84px 0}
 .finalcta p{color:var(--body-d);font-size:17px;line-height:1.6;margin:18px 0 26px;max-width:46ch}
 .finalcta .actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 .qrbox{background:#fff;border-radius:14px;padding:22px;text-align:center;max-width:300px;margin-left:auto;box-shadow:0 24px 60px rgba(3,10,25,.45)}
-.qr{width:190px;height:190px;margin:0 auto 14px;border-radius:10px;background:
-   linear-gradient(135deg,#0A1730 25%,transparent 25%) -10px 0/20px 20px,
-   linear-gradient(225deg,#0A1730 25%,transparent 25%) -10px 0/20px 20px,
-   linear-gradient(315deg,#0A1730 25%,transparent 25%) 0 0/20px 20px,
-   linear-gradient(45deg,#0A1730 25%,transparent 25%) 0 0/20px 20px,#eef2f8;
-   border:6px solid #fff;outline:1px solid var(--line);display:flex;align-items:center;justify-content:center}
-.qr .qtag{font-family:"Montserrat",sans-serif;font-weight:800;font-size:10px;letter-spacing:.16em;color:#fff;background:var(--navy);padding:5px 8px;border-radius:4px}
+.qr{display:block;width:190px;height:190px;margin:0 auto 14px;border-radius:10px;border:6px solid #fff;outline:1px solid var(--line);overflow:hidden}
 .qrbox .qcap{font-size:13px;font-weight:700;color:var(--ink)}
 .qrbox .qsub{font-size:11.5px;color:var(--body-l);margin-top:4px}
 
@@ -185,7 +179,7 @@ footer .cp{font-size:12px;width:100%;text-align:center;margin-top:18px;border-to
 <body>
 
 <!-- ANNOUNCEMENT STRIP -->
-<div class="strip">Free live masterclass · <b>[[Thu, Jul 10 · 5:00 PM PT]]</b> · Limited virtual seats — register below</div>
+<div class="strip">Free live masterclass · <b>Early August 2026 · date TBD</b> · Limited virtual seats — register below</div>
 
 <!-- NAV -->
 <header class="nav">
@@ -198,7 +192,7 @@ footer .cp{font-size:12px;width:100%;text-align:center;margin-top:18px;border-to
       <a href="startup-science.html">Startup Science</a>
       <a href="authority.html">Authority</a>
     </nav>
-    <a class="nav-cta" href="#register">Reserve My Seat →</a>
+    <a class="nav-cta" href="https://www.eventbrite.com/e/the-startup-architect-masterclass-know-your-phase-know-your-next-move-tickets-1992508400262?aff=oddtdtcreator" target="_blank" rel="noopener">Reserve My Seat →</a>
   </div>
 </header>
 
@@ -223,31 +217,11 @@ footer .cp{font-size:12px;width:100%;text-align:center;margin-top:18px;border-to
     <div class="card" id="register">
       <div class="head">
         <div class="free">Save Your Free Seat</div>
-        <p>[[Thursday, July 10 · 5:00 PM PT]] · Live &amp; virtual</p>
+        <p>Early August 2026 · date TBD · Live &amp; virtual</p>
       </div>
       <div class="body">
-        <!-- Front-end demo form. Point action/JS at your lead provider to capture sign-ups. -->
-        <form id="regForm" onsubmit="return regSubmit(event)">
-          <div class="field"><label for="fn">First name</label><input id="fn" name="first_name" type="text" placeholder="Jordan" required></div>
-          <div class="field"><label for="em">Email</label><input id="em" name="email" type="email" placeholder="you@company.com" required></div>
-          <div class="field"><label for="st">Where are you in the journey?</label>
-            <select id="st" name="stage">
-              <option value="">Select your stage…</option>
-              <option>Just an idea / pre-launch</option>
-              <option>Building &amp; validating (pre–product-market fit)</option>
-              <option>Early traction / raising</option>
-              <option>Scaling</option>
-              <option>Investor / advisor / operator</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-blue btn-lg">Register Free →</button>
-          <p class="fine">No cost. No pitch disguised as a class. Just the map — and a calendar link the moment you register.</p>
-        </form>
-        <div class="ok" id="regOk">
-          <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17.5 19.5 7" stroke="#1A8CF0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h4>You're in.</h4>
-          <p>Check your inbox for the calendar invite and join link. See you there.</p>
-        </div>
+        <a class="btn btn-blue btn-lg" style="width:100%;justify-content:center" href="https://www.eventbrite.com/e/the-startup-architect-masterclass-know-your-phase-know-your-next-move-tickets-1992508400262?aff=oddtdtcreator" target="_blank" rel="noopener">Register Free on Eventbrite →</a>
+        <p class="fine">No cost. No pitch disguised as a class. Just the map — and a calendar link the moment you register.</p>
       </div>
     </div>
   </div>
@@ -336,16 +310,14 @@ footer .cp{font-size:12px;width:100%;text-align:center;margin-top:18px;border-to
 <!-- HOST -->
 <section class="block host">
   <div class="wrap">
-    <div class="photo">
-      <div class="ghost">GS</div>
-      <div class="cap">[[ Swap in Gregory headshot ]]</div>
+    <div class="photo" style="background-image:url('assets/real/grey-blazer-cut.png');background-size:cover;background-position:top center">
     </div>
     <div>
       <span class="eyebrow">Your host</span>
       <h2 class="sec-title">Gregory Shepard, The Startup Architect.</h2>
-      <p class="lead-p">Serial entrepreneur, author, and investor. Gregory has built and sold 12 companies, advised thousands of founders, and distilled it all into the Startup Lifecycle — the seven-phase system behind his book and this masterclass.</p>
+      <p class="lead-p">Serial entrepreneur, author, and investor. Gregory has built and sold 12 companies, invested in 8 more, and distilled it all into the Startup Lifecycle — the seven-phase system behind his book and this masterclass.</p>
       <ul class="credlist">
-        <li>12 companies built &amp; 12 exits — including acquisitions by eBay</li>
+        <li>12 companies built &amp; sold, 8 invested — including a $925M cross-border exit to eBay</li>
         <li>TEDx, United Nations &amp; Fulbright speaker · 100+ conferences worldwide</li>
         <li>Author of <em>The Startup Lifecycle</em>, <em>Startup Failure &amp; Success</em> &amp; <em>The Startup Funding Life Cycle</em></li>
         <li>Founder-first: this session is orientation, not a sales pitch</li>
@@ -361,14 +333,14 @@ footer .cp{font-size:12px;width:100%;text-align:center;margin-top:18px;border-to
       <h2>One hour. The whole map. Free.</h2>
       <p>Seats for the live session are limited so the Q&amp;A stays useful. Reserve yours now — you'll get the calendar invite and join link the moment you register.</p>
       <div class="actions">
-        <a class="btn btn-blue btn-lg" href="#register">Reserve My Free Seat →</a>
-        <span style="font-size:13px;color:rgba(255,255,255,.6)">[[ Thursday, July 10 · 5:00 PM PT · live &amp; virtual ]]</span>
+        <a class="btn btn-blue btn-lg" href="https://www.eventbrite.com/e/the-startup-architect-masterclass-know-your-phase-know-your-next-move-tickets-1992508400262?aff=oddtdtcreator" target="_blank" rel="noopener">Reserve My Free Seat →</a>
+        <span style="font-size:13px;color:rgba(255,255,255,.6)">Early August 2026 · date TBD · live &amp; virtual</span>
       </div>
     </div>
     <div class="qrbox">
-      <div class="qr"><span class="qtag">QR</span></div>
+      <a href="https://www.eventbrite.com/e/the-startup-architect-masterclass-know-your-phase-know-your-next-move-tickets-1992508400262?aff=oddtdtcreator" target="_blank" rel="noopener" class="qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=0&data=https%3A%2F%2Fwww.eventbrite.com%2Fe%2Fthe-startup-architect-masterclass-know-your-phase-know-your-next-move-tickets-1992508400262%3Faff%3Doddtdtcreator" alt="QR code to register on Eventbrite" width="100%" style="display:block;border-radius:8px"></a>
       <div class="qcap">Scan to register</div>
-      <div class="qsub">[[ Replace with your Hovercode QR → gregoryshepard.com/know-your-phase ]]</div>
+      <div class="qsub">Links directly to the Eventbrite listing</div>
     </div>
   </div>
 </section>
@@ -380,21 +352,11 @@ footer .cp{font-size:12px;width:100%;text-align:center;margin-top:18px;border-to
     <div class="links">
       <a href="index.html">Home</a>
       <a href="speaking.html">Speaking</a>
-      <a href="#register">Register</a>
+      <a href="https://www.eventbrite.com/e/the-startup-architect-masterclass-know-your-phase-know-your-next-move-tickets-1992508400262?aff=oddtdtcreator" target="_blank" rel="noopener">Register</a>
     </div>
     <div class="cp">© 2026 Gregory Shepard. All rights reserved. · This masterclass is free; no purchase necessary.</div>
   </div>
 </footer>
 
-<script>
-/* Front-end demo: shows a thank-you state on submit.
-   Wire this form to your provider (Beehiiv / GHL / Zapier webhook) to capture leads. */
-function regSubmit(e){
-  e.preventDefault();
-  document.getElementById('regForm').style.display='none';
-  document.getElementById('regOk').style.display='block';
-  return false;
-}
-</script>
 </body>
 </html>
