@@ -468,6 +468,7 @@ section.block,
 /* ===== v6 — real brand assets: nav mark · credibility bar · placeholders · initials avatars ===== */
 .brand{flex-direction:row;align-items:center;gap:11px}
 .brand>img{width:34px;height:34px;flex:0 0 auto}
+.brand .full-logo{width:auto;height:38px;flex:0 0 auto}
 .brand>div{display:flex;flex-direction:column;line-height:1}
 .credbar{background:#04060A;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .credbar .wrap{display:flex;align-items:center;justify-content:center;gap:30px 46px;flex-wrap:wrap;padding:34px 40px}
