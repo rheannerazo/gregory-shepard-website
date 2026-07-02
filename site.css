@@ -446,16 +446,15 @@ section.block,
 .hero-stage{position:relative;width:100%;max-width:900px;height:440px;margin-top:12px}
 .hero-stage .glow{position:absolute;left:50%;bottom:-40px;transform:translateX(-50%);width:720px;height:420px;background:radial-gradient(50% 60% at 50% 100%,rgba(26,140,240,.35),transparent 70%);filter:blur(30px)}
 .hero-stage .cutout{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:100%;width:auto;max-width:none;filter:saturate(.92)}
-.fcard{position:absolute;background:rgba(10,18,32,.78);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 18px;box-shadow:0 18px 44px rgba(0,0,0,.45);text-align:left;min-width:150px;z-index:2}
+.fcard{position:absolute;background:rgba(10,18,32,.78);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 16px 14px;box-shadow:0 18px 44px rgba(0,0,0,.45);text-align:left;min-width:150px;z-index:2}
+.fcard-img{width:88px;height:56px;background:#fff;border-radius:8px;background-size:78%;background-repeat:no-repeat;background-position:center;margin-bottom:10px;box-shadow:0 6px 14px rgba(0,0,0,.3);filter:contrast(1.35) saturate(1.15)}
 .fcard .lbl{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:4px}
 .fcard b{font-family:"Anton",sans-serif;font-weight:400;font-size:26px;color:#fff;letter-spacing:.02em}
-.fcard svg{display:block;width:84px;height:24px;margin-top:8px}
-.fcard polyline{fill:none;stroke:var(--blue-lt);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .fcard.f1{left:5%;top:38%}
 .fcard.f2{right:4%;top:26%}
 .fcard.f3{left:13%;bottom:15%}
-.pillbadge{position:absolute;right:13%;bottom:26%;display:inline-flex;align-items:center;gap:8px;background:rgba(10,18,32,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:12px 20px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:13px;color:#fff;box-shadow:0 18px 44px rgba(0,0,0,.45);z-index:2}
-.pillbadge::before{content:"✦";color:var(--blue-lt)}
+.pillbadge{position:absolute;right:13%;bottom:26%;display:inline-flex;align-items:center;gap:10px;background:rgba(10,18,32,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 20px 8px 8px;font-family:"Montserrat",sans-serif;font-weight:700;font-size:13px;color:#fff;box-shadow:0 18px 44px rgba(0,0,0,.45);z-index:2}
+.pillbadge img{width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:center 25%;flex:0 0 auto}
 @media(max-width:1040px){
   .hero{margin:8px 10px 0;border-radius:18px}
   .hero-stage{height:auto}
