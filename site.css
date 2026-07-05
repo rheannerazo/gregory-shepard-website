@@ -155,8 +155,9 @@ section.block{padding:74px 0}
 /* ===== FOOTER ===== */
 footer{background:var(--navy-2);color:#fff}
 .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding:58px 0 40px;border-bottom:1px solid var(--line-d)}
-.foot-brand .mark{font-family:"Montserrat",sans-serif;font-weight:800;font-size:20px;letter-spacing:.2em}
-.foot-brand .sub{font-size:8px;letter-spacing:.32em;color:var(--bronze);font-weight:700;margin-top:5px;font-family:"Montserrat",sans-serif}
+.foot-brand .mark{font-family:"Montserrat",sans-serif;font-weight:800;font-size:20px;letter-spacing:.2em;position:relative;display:inline-block;padding-bottom:8px}
+.foot-brand .mark::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--blue)}
+.foot-brand .sub{font-size:8px;letter-spacing:.32em;color:var(--blue-lt);font-weight:700;margin-top:6px;font-family:"Montserrat",sans-serif}
 .foot-brand p{color:rgba(255,255,255,.5);font-size:13.5px;line-height:1.7;margin-top:16px;max-width:34ch}
 .foot-col h4{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:15px}
 .foot-col a{display:block;color:rgba(255,255,255,.6);font-size:14px;margin-bottom:10px;transition:.15s}
@@ -347,10 +348,10 @@ footer{background:var(--navy-2);color:#fff}
 }
 
 /* ===== EDITORIAL BREAK (full-bleed photo statement, homepage) ===== */
-.editorial-break{position:relative;background-size:cover;background-position:center 6%;color:#fff;overflow:hidden}
-.editorial-break-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,18,37,.5),rgba(10,23,48,.34) 45%,rgba(7,18,37,.68));z-index:1}
-.editorial-break .wrap{position:relative;z-index:2;padding:130px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:34px}
-.editorial-break-statement{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(26px,3.2vw,46px);line-height:1.08;letter-spacing:.015em;max-width:16ch}
+.editorial-break{position:relative;background-size:cover;background-position:center 24%;color:#fff;overflow:hidden}
+.editorial-break-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,18,37,.82),rgba(10,23,48,.55) 48%,rgba(7,18,37,.22)),linear-gradient(180deg,rgba(7,18,37,.35),transparent 40%,rgba(7,18,37,.45));z-index:1}
+.editorial-break .wrap{position:relative;z-index:2;padding:130px 40px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:34px}
+.editorial-break-statement{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(26px,3.2vw,46px);line-height:1.08;letter-spacing:.015em;max-width:none;text-shadow:0 4px 24px rgba(0,0,0,.35)}
 @media(max-width:640px){
   .editorial-break .wrap{padding:80px 22px;gap:24px}
 }
@@ -435,7 +436,7 @@ section.block,
 .cta .wrap{grid-template-columns:1fr;text-align:center;justify-items:center;gap:16px;padding:88px 40px}
 .cta-photo{display:none}
 .cta h2{font-size:clamp(30px,3.4vw,46px)}
-.cta p{max-width:52ch}
+.cta p{max-width:66ch;font-size:16px}
 .cta-actions{flex-direction:row;justify-content:center;flex-wrap:wrap;min-width:0;margin-top:10px}
 .cta .btn-blue::before{content:"";width:28px;height:28px;border-radius:50%;background:url('assets/orig/greg-head.png') center 24%/cover;flex:0 0 auto}
 /* home: centered hero + portrait stage + floating proof cards */
@@ -474,7 +475,9 @@ section.block,
 .credbar .wrap{display:flex;align-items:center;justify-content:center;gap:30px 46px;flex-wrap:wrap;padding:34px 40px}
 .credbar img{height:56px;width:auto;filter:brightness(0) invert(1);opacity:.9}
 .credbar img.wide{height:40px}
-.credbar img.award{height:104px}
+.credbar img.award{height:88px}
+.award-fig{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0}
+.award-fig figcaption{font-family:"Montserrat",sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);text-align:center;line-height:1.5}
 .credbar .prh{font-family:"Inter",sans-serif;font-weight:600;font-size:15px;line-height:1.25;color:rgba(255,255,255,.9)}
 @media(max-width:640px){.credbar img{height:40px}.credbar img.award{height:72px}.credbar .wrap{gap:20px 26px;padding:24px 20px}}
 .imgph{display:grid;place-items:center;background:radial-gradient(90% 90% at 50% 15%,#12325e,#0C1D3D 48%,#071225);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
