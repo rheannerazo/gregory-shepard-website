@@ -50,3 +50,6 @@ verbatim, syncs to `dist/`, reports ✅/❌ per edit → Opus renders in Chrome 
 at real scale before calling it done. Don't skip the verify step — several "done" edits
 this project shipped visible bugs (nav gap, washed-out photo overlay, malformed badge) that
 only surfaced once actually rendered.
+
+## LOCKED BY GREG (Jul 5 2026)
+- The home page hero (layered name-type composition + all its animation, incl. the ticker) stays EXACTLY as is. Do not restyle, simplify, or "calm" it in any design pass. "People go nuts over it." - Greg
