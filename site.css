@@ -389,6 +389,34 @@ section.block,
   .menu .drop{display:block;position:static;transform:none;border:0;border-radius:0;box-shadow:none;background:rgba(255,255,255,.03);padding:0 0 6px;min-width:0}
   .menu .drop a{padding:9px 26px 9px 42px;font-size:13.5px}
 }
+/* ===== MEGA MENU (Greg Jul 5: his nav order, all sections in one view) ===== */
+.mega{display:none}
+.nav-ghost{border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.85);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:700;white-space:nowrap;flex:0 0 auto;transition:.15s}
+.nav-ghost:hover{border-color:var(--blue);color:#fff;transform:translateY(-1px)}
+.m-only{display:none!important}
+@media(max-width:1040px){
+  .nav-ghost{display:none}
+  .m-only{display:block!important}
+}
+@media(min-width:1041px){
+  .menu{position:relative}
+  .menu::after{content:"";position:absolute;left:0;right:0;top:100%;height:34px;display:none}
+  .menu:hover::after,.menu:focus-within::after{display:block}
+  .menu .ni{position:static}
+  .menu .ni::after{display:none}
+  .menu .ni:hover .drop{display:none}
+  .menu:hover .car,.menu:focus-within .car{transform:rotate(180deg);opacity:1}
+  .mega{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:65}
+  .menu:hover ~ .mega,.mega:hover,.menu:focus-within ~ .mega{display:block}
+  .mega-in{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:rgba(7,18,37,.97);backdrop-filter:blur(14px);border:1px solid var(--line-d);border-top:2px solid var(--blue);border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.5);padding:26px 28px 22px}
+  .mcol{padding:0 12px;border-left:1px solid rgba(255,255,255,.06)}
+  .mcol:first-child{border-left:0;padding-left:2px}
+  .mega .mhead{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;padding-bottom:9px;margin-bottom:7px;border-bottom:1px solid rgba(255,255,255,.1);transition:.12s}
+  .mega .mhead:hover{color:var(--blue-lt)}
+  .mega .mcol a:not(.mhead){display:block;padding:6px 0;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.02em;transition:.12s}
+  .mega .mcol a:not(.mhead):hover{color:#fff;padding-left:4px}
+  .mega .mcol a.mspecial{color:var(--bronze);font-size:11.5px}
+}
 /* breadcrumbs (inside dark hero) */
 .crumbs{display:flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:20px}
 .crumbs a{color:rgba(255,255,255,.5);transition:.15s}

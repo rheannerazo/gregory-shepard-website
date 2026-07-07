@@ -19,7 +19,7 @@ for (const f of fs.readdirSync(root).filter(f => f.endsWith('.html'))) {
   let h = fs.readFileSync(p, 'utf8');
   let navHtml = nav;
   for (const [g, re] of Object.entries(groups)) {
-    if (re.test(f)) navHtml = navHtml.replace(`class="top" data-g="${g}"`, `class="top active" data-g="${g}"`);
+    if (re.test(f)) navHtml = navHtml.replace(new RegExp(`class="top([^"]*)" data-g="${g}"`), `class="top$1 active" data-g="${g}"`);
   }
   const beforeNav = h;
   h = h.replace(/<header class="nav">[\s\S]*?<\/header>/, navHtml);

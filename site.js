@@ -19,6 +19,26 @@
     // mobile hamburger (injected — no per-page markup needed)
     var navWrap = document.querySelector('.nav .wrap'), menu = document.querySelector('.menu');
     if (navWrap && menu && nav) {
+      // desktop mega menu: one panel, every section as a column (injected from the .drop markup)
+      var mega = document.createElement('div'); mega.className = 'mega';
+      var megaIn = document.createElement('div'); megaIn.className = 'mega-in';
+      menu.querySelectorAll('.ni').forEach(function (ni) {
+        var top = ni.querySelector('.top'), drop = ni.querySelector('.drop');
+        if (!top || !drop) return;
+        var col = document.createElement('div'); col.className = 'mcol';
+        var head = document.createElement('a'); head.className = 'mhead';
+        head.href = top.getAttribute('href');
+        head.textContent = (top.firstChild && top.firstChild.nodeValue || top.textContent).replace('▾', '').trim();
+        if (top.classList.contains('active')) head.classList.add('active');
+        col.appendChild(head);
+        drop.querySelectorAll('a').forEach(function (a) {
+          if (a.getAttribute('href') === top.getAttribute('href')) return; // hub link lives in the column head
+          col.appendChild(a.cloneNode(true));
+        });
+        megaIn.appendChild(col);
+      });
+      mega.appendChild(megaIn);
+      navWrap.appendChild(mega);
       var burger = document.createElement('button');
       burger.className = 'nav-burger'; burger.setAttribute('aria-label', 'Toggle menu'); burger.innerHTML = '☰';
       navWrap.appendChild(burger);
