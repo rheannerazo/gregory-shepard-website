@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "assets:optimize": "node tools/optimize-assets.js",
     "qa:links": "node tools/check-links.js",
     "qa:cta": "node tools/cta-audit.js",
     "qa": "npm run qa:links && npm run qa:cta"

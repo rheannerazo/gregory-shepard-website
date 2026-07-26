@@ -2,6 +2,8 @@
    SHEPARD — THE STARTUP ARCHITECT · shared design system
    Used by every page. Edit once, updates the whole site.
    =================================================================== */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 900;font-display:swap;src:url("assets/fonts/inter-latin.woff2") format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:700 800;font-display:swap;src:url("assets/fonts/montserrat-latin.woff2") format("woff2")}
 :root{
   --navy:#0A1730; --navy-2:#071225; --blue:#1A8CF0; --blue-lt:#6BB6FF;
   --cobalt:#0A3CC0; --bronze:#C89253;
@@ -68,7 +70,7 @@ section.block{padding:74px 0}
 .pillar span{display:block;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1.3;color:rgba(255,255,255,.9)}
 .hero-actions{display:flex;align-items:center;gap:24px}
 .hero-media{position:relative;align-self:end;height:100%;min-height:640px}
-.hero-portrait{position:absolute;right:-10px;bottom:0;height:99%;width:100%;background:right bottom/contain no-repeat url("assets/real/hero-cut.png")}
+.hero-portrait{position:absolute;right:-10px;bottom:0;height:99%;width:100%;background:right bottom/contain no-repeat url("assets/real/hero-cut.webp")}
 
 /* compact hero for interior pages */
 .hero.interior .wrap{min-height:430px;align-items:center;gap:56px}
@@ -108,11 +110,11 @@ section.block{padding:74px 0}
 .darksplit .photo{aspect-ratio:16/10;border-radius:8px;background:center/cover no-repeat;border:1px solid var(--line-d)}
 .thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px}
 .thumbs div{aspect-ratio:16/10;border-radius:6px;background-size:cover;background-position:center;border:1px solid var(--line-d)}
-.thumbs div:nth-child(1){background-image:url("assets/orig/event-1.jpg")}
-.thumbs div:nth-child(2){background-image:url("assets/orig/event-2.jpg")}
-.thumbs div:nth-child(3){background-image:url("assets/real/speaking-2.jpg")}
-.thumbs div:nth-child(4){background-image:url("assets/orig/event-4.jpg")}
-.thumbs div:nth-child(5){background-image:url("assets/real/slides.jpg")}
+.thumbs div:nth-child(1){background-image:url("assets/orig/event-1.webp")}
+.thumbs div:nth-child(2){background-image:url("assets/orig/event-2.webp")}
+.thumbs div:nth-child(3){background-image:url("assets/real/speaking-2.webp")}
+.thumbs div:nth-child(4){background-image:url("assets/orig/event-4.webp")}
+.thumbs div:nth-child(5){background-image:url("assets/real/slides.webp")}
 
 /* ===== CARD GRID (advisory / pathways) ===== */
 .cardsec{background:var(--cloud)}
@@ -154,7 +156,7 @@ section.block{padding:74px 0}
 .cta{background:linear-gradient(135deg,#071225,#0A1730);color:#fff;position:relative;overflow:hidden}
 .cta::before{content:"";position:absolute;top:0;right:0;width:42%;height:100%;background:radial-gradient(circle at 80% 30%,rgba(26,140,240,.16),transparent 60%)}
 .cta .wrap{position:relative;display:grid;grid-template-columns:240px 1fr auto;gap:44px;align-items:center;padding:46px 40px}
-.cta-photo{height:150px;align-self:end;background:center 24%/cover no-repeat url("assets/real/portrait-smile-cut.png")}
+.cta-photo{height:150px;align-self:end;background:center 24%/cover no-repeat url("assets/real/portrait-smile-cut.webp")}
 .cta h2{font-family:"Inter",sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,3vw,38px);line-height:1;letter-spacing:.01em;margin-bottom:10px}
 .cta p{color:var(--body-d);font-size:15px;max-width:46ch}
 .cta-actions{display:flex;flex-direction:column;gap:12px;min-width:230px}
@@ -482,7 +484,7 @@ section.block,
 .cta h2{font-size:clamp(30px,3.4vw,40px)}
 .cta p{max-width:66ch;font-size:16px}
 .cta-actions{flex-direction:row;justify-content:center;flex-wrap:wrap;min-width:0;margin-top:10px}
-.cta .btn-blue::before{content:"";width:28px;height:28px;border-radius:50%;background:url('assets/orig/greg-head.png') center 24%/cover;flex:0 0 auto}
+.cta .btn-blue::before{content:"";width:28px;height:28px;border-radius:50%;background:url('assets/orig/greg-head-avatar.webp') center 24%/cover;flex:0 0 auto}
 /* home: centered hero + portrait stage + floating proof cards */
 .home-c .wrap{display:flex;flex-direction:column;align-items:center;text-align:center;min-height:0;padding-top:56px;padding-bottom:0;gap:0}
 .home-c h1{font-size:clamp(44px,5vw,70px);line-height:.98;letter-spacing:.01em}
