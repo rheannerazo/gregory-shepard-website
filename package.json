@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "qa:links": "node tools/check-links.js",
+    "qa:cta": "node tools/cta-audit.js",
+    "qa": "npm run qa:links && npm run qa:cta"
   },
   "keywords": [],
   "author": "",

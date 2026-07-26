@@ -18,14 +18,20 @@
 
     // Route contact CTAs to the form with useful context instead of a generic page top.
     function contactTopic(label, page) {
-      var value = (label + ' ' + page).toLowerCase();
-      if (/notify|drop alert|early access/.test(value)) return 'Updates / Newsletter';
-      if (/workshop|lecture|reserve|seat|event/.test(value)) return 'Workshop / Event';
-      if (/book|speak|speaker|availability/.test(value)) return 'Speaking';
-      if (/podcast|show|media|piece|press|author|read|listen|watch/.test(value)) return 'Media / Podcast';
-      if (/invest|venture|pitch/.test(value)) return 'Investment / Pitch';
-      if (/advis|board|philanthrop|cause/.test(value)) return 'Advisory / Board';
-      if (/partner/.test(value)) return 'Partnership';
+      var labelValue = label.toLowerCase();
+      var pageValue = page.toLowerCase();
+      if (/notify|drop alert|early access/.test(labelValue)) return 'Updates / Newsletter';
+      if (/advis|board|director|philanthrop|cause/.test(labelValue)) return 'Advisory / Board';
+      if (/speak|speaker|keynote|panel|book greg|booking inquiry/.test(labelValue)) return 'Speaking';
+      if (/podcast|show|media|piece|press|author|read|listen|watch/.test(labelValue)) return 'Media / Podcast';
+      if (/invest|venture|pitch/.test(labelValue)) return 'Investment / Pitch';
+      if (/advisory|about-causes/.test(pageValue)) return 'Advisory / Board';
+      if (/venture/.test(pageValue)) return 'Investment / Pitch';
+      if (/workshop|lecture|event/.test(pageValue)) return 'Workshop / Event';
+      if (/speaking/.test(pageValue)) return 'Speaking';
+      if (/author|authority/.test(pageValue)) return 'Media / Podcast';
+      if (/workshop|lecture|reserve|seat|event|intensive|cohort/.test(labelValue)) return 'Workshop / Event';
+      if (/partner/.test(labelValue)) return 'Partnership';
       return 'General Inquiry';
     }
     document.querySelectorAll('a[href="contact.html"]').forEach(function (link) {
@@ -68,7 +74,7 @@
     var navWrap = document.querySelector('.nav .wrap'), navRow1 = document.querySelector('.nav-row1'), menu = document.querySelector('.menu');
     if (navWrap && menu && nav) {
       // desktop mega menu: one panel, every section as a column (injected from the .drop markup)
-      var mega = document.createElement('div'); mega.className = 'mega';
+      var mega = document.createElement('div'); mega.className = 'mega'; mega.id = 'site-mega-menu'; mega.setAttribute('aria-label', 'Explore all sections');
       var megaIn = document.createElement('div'); megaIn.className = 'mega-in';
       menu.querySelectorAll('.ni').forEach(function (ni) {
         var top = ni.querySelector('.top'), drop = ni.querySelector('.drop');
@@ -89,12 +95,30 @@
       navWrap.appendChild(mega);
       var burger = document.createElement('button');
       menu.id = menu.id || 'primary-navigation';
-      burger.className = 'nav-burger'; burger.setAttribute('aria-label', 'Toggle menu'); burger.setAttribute('aria-controls', menu.id); burger.setAttribute('aria-expanded', 'false'); burger.innerHTML = '☰';
+      burger.className = 'nav-burger'; burger.setAttribute('aria-label', 'Open menu'); burger.setAttribute('aria-controls', menu.id); burger.setAttribute('aria-expanded', 'false'); burger.innerHTML = '☰';
       (navRow1 || navWrap).appendChild(burger);
-      function setOpen(o){ nav.classList.toggle('menu-open', o); burger.setAttribute('aria-expanded', o ? 'true' : 'false'); burger.innerHTML = o ? '✕' : '☰'; }
+      function setOpen(o){
+        nav.classList.toggle('menu-open', o);
+        burger.setAttribute('aria-expanded', o ? 'true' : 'false');
+        burger.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
+        burger.innerHTML = o ? '✕' : '☰';
+      }
       burger.addEventListener('click', function(){ setOpen(!nav.classList.contains('menu-open')); });
       menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
-      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('menu-open')) { setOpen(false); burger.focus(); } });
+      document.addEventListener('keydown', function(e){
+        if (e.key !== 'Escape') return;
+        if (nav.classList.contains('menu-open')) {
+          setOpen(false);
+          burger.focus();
+          return;
+        }
+        if (window.innerWidth > 1040 && (menu.contains(document.activeElement) || mega.contains(document.activeElement))) {
+          var brandLink = nav.querySelector('.brand');
+          if (brandLink) brandLink.focus();
+        }
+      });
+      document.addEventListener('click', function(e){ if (nav.classList.contains('menu-open') && !nav.contains(e.target)) setOpen(false); });
+      window.addEventListener('resize', function(){ if (window.innerWidth > 1040 && nav.classList.contains('menu-open')) setOpen(false); });
     }
 
     function countup(el) {
