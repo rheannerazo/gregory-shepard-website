@@ -17,7 +17,7 @@
     onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
     // mobile hamburger (injected — no per-page markup needed)
-    var navWrap = document.querySelector('.nav .wrap'), menu = document.querySelector('.menu');
+    var navWrap = document.querySelector('.nav .wrap'), navRow1 = document.querySelector('.nav-row1'), menu = document.querySelector('.menu');
     if (navWrap && menu && nav) {
       // desktop mega menu: one panel, every section as a column (injected from the .drop markup)
       var mega = document.createElement('div'); mega.className = 'mega';
@@ -40,11 +40,13 @@
       mega.appendChild(megaIn);
       navWrap.appendChild(mega);
       var burger = document.createElement('button');
-      burger.className = 'nav-burger'; burger.setAttribute('aria-label', 'Toggle menu'); burger.innerHTML = '☰';
-      navWrap.appendChild(burger);
-      function setOpen(o){ nav.classList.toggle('menu-open', o); burger.innerHTML = o ? '✕' : '☰'; }
+      menu.id = menu.id || 'primary-navigation';
+      burger.className = 'nav-burger'; burger.setAttribute('aria-label', 'Toggle menu'); burger.setAttribute('aria-controls', menu.id); burger.setAttribute('aria-expanded', 'false'); burger.innerHTML = '☰';
+      (navRow1 || navWrap).appendChild(burger);
+      function setOpen(o){ nav.classList.toggle('menu-open', o); burger.setAttribute('aria-expanded', o ? 'true' : 'false'); burger.innerHTML = o ? '✕' : '☰'; }
       burger.addEventListener('click', function(){ setOpen(!nav.classList.contains('menu-open')); });
       menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('menu-open')) { setOpen(false); burger.focus(); } });
     }
 
     function countup(el) {
