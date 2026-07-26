@@ -257,8 +257,10 @@ footer{background:var(--navy-2);color:#fff}
 .form input,.form select,.form textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:"Inter",sans-serif;font-size:15px;color:var(--ink);background:var(--cloud);outline:none;transition:.15s}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--blue);background:#0E1830}
 .form textarea{min-height:120px;resize:vertical}
+.form-note{margin:13px 0 0;font-size:12.5px;line-height:1.55;color:var(--body-l);max-width:48ch}
+.form-status{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--blue-lt)}
 .chcards{display:grid;gap:16px}
-.chcard{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:.15s}
+.chcard{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:.15s;text-decoration:none}
 .chcard:hover{box-shadow:0 12px 30px rgba(10,23,48,.08);transform:translateY(-2px)}
 .chcard .ic{width:42px;height:42px;flex:0 0 auto;border-radius:8px;background:rgba(26,140,240,.12);color:var(--blue);display:grid;place-items:center;font-size:17px}
 .chcard b{display:block;font-size:14px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px}

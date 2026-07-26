@@ -16,6 +16,54 @@
     function onScroll(){ if (nav) nav.classList.toggle('scrolled', window.scrollY > 40); }
     onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
+    // Route contact CTAs to the form with useful context instead of a generic page top.
+    function contactTopic(label, page) {
+      var value = (label + ' ' + page).toLowerCase();
+      if (/notify|drop alert|early access/.test(value)) return 'Updates / Newsletter';
+      if (/workshop|lecture|reserve|seat|event/.test(value)) return 'Workshop / Event';
+      if (/book|speak|speaker|availability/.test(value)) return 'Speaking';
+      if (/podcast|show|media|piece|press|author|read|listen|watch/.test(value)) return 'Media / Podcast';
+      if (/invest|venture|pitch/.test(value)) return 'Investment / Pitch';
+      if (/advis|board|philanthrop|cause/.test(value)) return 'Advisory / Board';
+      if (/partner/.test(value)) return 'Partnership';
+      return 'General Inquiry';
+    }
+    document.querySelectorAll('a[href="contact.html"]').forEach(function (link) {
+      var topic = contactTopic(link.textContent.trim(), location.pathname);
+      var source = location.pathname.split('/').pop() || 'index.html';
+      link.href = 'contact.html?topic=' + encodeURIComponent(topic) + '&from=' + encodeURIComponent(source) + '#contact-form';
+    });
+
+    var contactForm = document.querySelector('[data-contact-form]');
+    if (contactForm) {
+      var params = new URLSearchParams(location.search);
+      var topicField = contactForm.querySelector('[name="topic"]');
+      var requestedTopic = params.get('topic');
+      if (requestedTopic && topicField) {
+        var match = Array.prototype.find.call(topicField.options, function (option) { return option.value === requestedTopic; });
+        if (match) topicField.value = requestedTopic;
+      }
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!contactForm.reportValidity()) return;
+        var data = new FormData(contactForm);
+        var topic = data.get('topic') || 'General Inquiry';
+        var sourcePage = params.get('from') || 'contact.html';
+        var subject = 'Gregory Shepard website inquiry: ' + topic;
+        var body = [
+          'Name: ' + data.get('name'),
+          'Email: ' + data.get('email'),
+          'Topic: ' + topic,
+          'Source page: ' + sourcePage,
+          '',
+          data.get('message')
+        ].join('\n');
+        var status = contactForm.querySelector('[data-form-status]');
+        if (status) status.innerHTML = 'Opening your email app now. If it does not open, email <a href="mailto:contact@gregoryshepard.com">contact@gregoryshepard.com</a>.';
+        location.href = 'mailto:contact@gregoryshepard.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      });
+    }
+
     // mobile hamburger (injected — no per-page markup needed)
     var navWrap = document.querySelector('.nav .wrap'), navRow1 = document.querySelector('.nav-row1'), menu = document.querySelector('.menu');
     if (navWrap && menu && nav) {
