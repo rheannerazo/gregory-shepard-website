@@ -2,6 +2,25 @@
 (function () {
   function ready(fn){ document.readyState!='loading' ? fn() : document.addEventListener('DOMContentLoaded', fn); }
   ready(function () {
+    function trackEvent(name, details) {
+      var payload = Object.assign({ source_page: location.pathname }, details || {});
+      if (typeof window.gtag === 'function') window.gtag('event', name, payload);
+      else if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: name }, payload));
+      window.dispatchEvent(new CustomEvent('gregory:analytics', { detail: { event: name, parameters: payload } }));
+    }
+    window.gregoryTrackEvent = trackEvent;
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest && event.target.closest('a[href]');
+      if (!link) return;
+      var href = link.href;
+      var details = {
+        link_url: href,
+        link_text: link.textContent.trim().replace(/\s+/g, ' ').slice(0, 100)
+      };
+      if (link.matches('.btn,.tlink,.nav-ghost,.nav-connect')) trackEvent('cta_click', details);
+      if (/^https?:/i.test(href) && new URL(href).origin !== location.origin) trackEvent('outbound_click', details);
+    });
+
     var sel = '.sec-head, .sec-title, .card, .quote, .cred, .book-stage, .collage > *, .blueprint, .video, .chcard, .topiclist div, .thumbs > div, .tile, .marquee .wrap > *, .framework .wrap > *, .darksplit .top > *, .form, .hero-copy > *, .press .logo, .press .lbl';
     var els = Array.prototype.slice.call(document.querySelectorAll(sel));
     els.forEach(function (el, i) { el.classList.add('reveal'); el.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
@@ -20,6 +39,7 @@
     function contactTopic(label, page) {
       var labelValue = label.toLowerCase();
       var pageValue = page.toLowerCase();
+      if (/shop|apparel|merch|music/.test(pageValue) || /drop alert|drop list|shop/.test(labelValue)) return 'Shop / Drop Alerts';
       if (/notify|drop alert|early access/.test(labelValue)) return 'Updates / Newsletter';
       if (/advis|board|director|philanthrop|cause/.test(labelValue)) return 'Advisory / Board';
       if (/speak|speaker|keynote|panel|book greg|booking inquiry/.test(labelValue)) return 'Speaking';
@@ -44,29 +64,21 @@
     if (contactForm) {
       var params = new URLSearchParams(location.search);
       var topicField = contactForm.querySelector('[name="topic"]');
+      var sourceField = contactForm.querySelector('[name="source_page"]');
+      var subjectField = contactForm.querySelector('[name="_subject"]');
+      var nextField = contactForm.querySelector('[name="_next"]');
       var requestedTopic = params.get('topic');
       if (requestedTopic && topicField) {
         var match = Array.prototype.find.call(topicField.options, function (option) { return option.value === requestedTopic; });
         if (match) topicField.value = requestedTopic;
       }
-      contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        if (!contactForm.reportValidity()) return;
-        var data = new FormData(contactForm);
-        var topic = data.get('topic') || 'General Inquiry';
-        var sourcePage = params.get('from') || 'contact.html';
-        var subject = 'Gregory Shepard website inquiry: ' + topic;
-        var body = [
-          'Name: ' + data.get('name'),
-          'Email: ' + data.get('email'),
-          'Topic: ' + topic,
-          'Source page: ' + sourcePage,
-          '',
-          data.get('message')
-        ].join('\n');
-        var status = contactForm.querySelector('[data-form-status]');
-        if (status) status.innerHTML = 'Opening your email app now. If it does not open, email <a href="mailto:contact@gregoryshepard.com">contact@gregoryshepard.com</a>.';
-        location.href = 'mailto:contact@gregoryshepard.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      var sourcePage = params.get('from') || 'contact.html';
+      if (sourceField) sourceField.value = sourcePage;
+      if (nextField) nextField.value = new URL('thanks.html', location.href).href;
+      contactForm.addEventListener('submit', function () {
+        var topic = topicField ? topicField.value : 'General Inquiry';
+        if (subjectField) subjectField.value = 'Gregory Shepard website inquiry: ' + topic;
+        trackEvent('contact_form_submit', { inquiry_topic: topic, source_page: sourcePage });
       });
     }
 

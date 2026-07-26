@@ -30,6 +30,7 @@ function lineNumber(text, index) {
 function contactTopic(label, page) {
   const labelValue = label.toLowerCase();
   const pageValue = page.toLowerCase();
+  if (/shop|apparel|merch|music/.test(pageValue) || /drop alert|drop list|shop/.test(labelValue)) return 'Shop / Drop Alerts';
   if (/notify|drop alert|early access/.test(labelValue)) return 'Updates / Newsletter';
   if (/advis|board|director|philanthrop|cause/.test(labelValue)) return 'Advisory / Board';
   if (/speak|speaker|keynote|panel|book greg|booking inquiry/.test(labelValue)) return 'Speaking';

@@ -5,6 +5,7 @@ const sharp = require('sharp');
 
 const root = path.join(__dirname, '..');
 const jobs = [
+  { input: 'assets/book-cover.png', output: 'assets/orig/book-cover.webp', width: 900, quality: 82 },
   { input: 'assets/orig/gs-logo-full.png', output: 'assets/orig/gs-logo-full.webp', width: 600, quality: 88 },
   { input: 'assets/real/hero-cut.png', output: 'assets/real/hero-cut.webp', width: 1500, quality: 80 },
   { input: 'assets/real/portrait-smile-cut.png', output: 'assets/real/portrait-smile-cut.webp', width: 1100, quality: 80 },

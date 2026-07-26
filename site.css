@@ -265,7 +265,9 @@ footer{background:var(--navy-2);color:#fff}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--blue);background:#0E1830}
 .form textarea{min-height:120px;resize:vertical}
 .form-note{margin:13px 0 0;font-size:12.5px;line-height:1.55;color:var(--body-l);max-width:48ch}
+.form-note a{color:var(--blue-lt);text-decoration:underline;text-underline-offset:2px}
 .form-status{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--blue-lt)}
+.form-honey{display:none!important}
 .chcards{display:grid;gap:16px}
 .chcard{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:.15s;text-decoration:none}
 .chcard:hover{box-shadow:0 12px 30px rgba(10,23,48,.08);transform:translateY(-2px)}
@@ -452,6 +454,8 @@ section.block,
 .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(26,140,240,.4);border-radius:999px;padding:4px 11px;white-space:nowrap}
 .badge.soon{color:var(--bronze);border-color:rgba(200,146,83,.5)}
 .badge.free{color:#2e9e63;border-color:rgba(46,158,99,.45)}
+.shop-status{display:inline-flex;align-items:center;gap:8px;margin:4px 0 18px;padding:9px 13px;border:1px solid rgba(200,146,83,.45);border-radius:999px;background:rgba(200,146,83,.08);color:rgba(255,255,255,.72);font-size:12.5px;line-height:1.35}
+.shop-status b{color:var(--bronze);text-transform:uppercase;letter-spacing:.1em;font-size:10px}
 /* workshop pricing tiers */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 .tier{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;position:relative;transition:.18s}
