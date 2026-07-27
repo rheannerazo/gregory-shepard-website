@@ -8,7 +8,8 @@
     "seo:apply": "node tools/apply-seo.js",
     "qa:links": "node tools/check-links.js",
     "qa:cta": "node tools/cta-audit.js",
-    "qa": "npm run qa:links && npm run qa:cta"
+    "qa:seo": "node tools/seo-copy-audit.js",
+    "qa": "npm run qa:links && npm run qa:cta && npm run qa:seo"
   },
   "keywords": [],
   "author": "",
